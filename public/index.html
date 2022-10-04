@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Password generator</title>
+    <link rel="stylesheet" href="/public/assets/general.css" />
+    <link rel="stylesheet" href="/public/assets/style.css" />
+    <script
+      src="https://kit.fontawesome.com/827bc51ef5.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <form class="wrapper" type="#">
+      <div class="header">Password Generator</div>
+      <div class="container">
+        <div class="input-area">
+          <div class="output">
+            <input id="otpText" type="text" />
+            <i class="fa-regular fa-copy" id="copy"></i>
+          </div>
+          <div class="strong-line">
+            <div class="strong-1"></div>
+            <div class="strong-2"></div>
+            <div class="strong-3"></div>
+          </div>
+          <div class="length-text">
+            <div>Password Length</div>
+            <div id="passwdLength">16</div>
+          </div>
+          <input class="passwd-range" type="range" />
+        </div>
+        <div class="settings-container">
+          <div class="settings-title">Password Setings</div>
+          <div class="checkbox-container">
+            <div><input type="checkbox" /><span>Lowercase [o-z]</span></div>
+            <div><input type="checkbox" /><span>Uppercase [A-J]</span></div>
+            <div><input type="checkbox" /><span>Numbers [0-9]</span></div>
+            <div><input type="checkbox" /><span>Symbols [!-$%+]</span></div>
+            <div><input type="checkbox" /><span>Exclude duplicate</span></div>
+            <div><input type="checkbox" /><span>Include Spaces</span></div>
+          </div>
+        </div>
+        <div class="footer-button">
+          <button class="generate-button">GENERATE PASSWORD</button>
+        </div>
+      </div>
+    </form>
+  </body>
+</html>

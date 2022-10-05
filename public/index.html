@@ -5,21 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Password generator</title>
-    <link rel="stylesheet" href="/public/assets/general.css" />
-    <link rel="stylesheet" href="/public/assets/style.css" />
+    <link rel="stylesheet" href="../src/styles/general.css" />
+    <link rel="stylesheet" href="../src/styles/style.css" />
     <script
       src="https://kit.fontawesome.com/827bc51ef5.js"
       crossorigin="anonymous"
     ></script>
   </head>
   <body>
+    <button onclick="showTable()">show table</button>
     <form class="wrapper" type="#">
       <div class="header">Password Generator</div>
       <div class="container">
         <div class="input-area">
           <div class="output">
-            <input id="otpText" type="text" />
-            <i class="fa-regular fa-copy" id="copy"></i>
+            <div id="otpText"></div>
+            <i
+              class="fa-regular fa-copy"
+              id="copy"
+              onclick="copyToClipboard()"
+            ></i>
           </div>
           <div class="strong-line">
             <div class="strong-1"></div>
@@ -28,19 +33,63 @@
           </div>
           <div class="length-text">
             <div>Password Length</div>
-            <div id="passwdLength">16</div>
+            <div id="passwdLength"></div>
           </div>
-          <input class="passwd-range" type="range" />
+          <input
+            class="passwd-range"
+            type="range"
+            min="10"
+            max="64"
+            value="32"
+            (change)="getSliderValue(this.value)"
+            oninput="getSliderValue(this.value)"
+          />
         </div>
         <div class="settings-container">
           <div class="settings-title">Password Setings</div>
           <div class="checkbox-container">
-            <div><input type="checkbox" /><span>Lowercase [o-z]</span></div>
-            <div><input type="checkbox" /><span>Uppercase [A-J]</span></div>
-            <div><input type="checkbox" /><span>Numbers [0-9]</span></div>
-            <div><input type="checkbox" /><span>Symbols [!-$%+]</span></div>
-            <div><input type="checkbox" /><span>Exclude duplicate</span></div>
-            <div><input type="checkbox" /><span>Include Spaces</span></div>
+            <div>
+              <input
+                type="checkbox"
+                id="lowerCase"
+                onchange="passwordSettings()"
+              /><span>Lowercase [o-z]</span>
+            </div>
+            <div>
+              <input
+                type="checkbox"
+                id="upperCase"
+                onchange="passwordSettings()"
+              /><span>Uppercase [A-J]</span>
+            </div>
+            <div>
+              <input
+                type="checkbox"
+                id="numbers"
+                onchange="passwordSettings()"
+              /><span>Numbers [0-9]</span>
+            </div>
+            <div>
+              <input
+                type="checkbox"
+                id="symbols"
+                onchange="passwordSettings()"
+              /><span>Symbols [!-$%+]</span>
+            </div>
+            <div>
+              <input
+                type="checkbox"
+                id="duplicate"
+                onchange="passwordSettings()"
+              /><span>Exclude duplicate</span>
+            </div>
+            <div>
+              <input
+                type="checkbox"
+                id="spaces"
+                onchange="passwordSettings()"
+              /><span>Include Spaces</span>
+            </div>
           </div>
         </div>
         <div class="footer-button">
@@ -48,5 +97,7 @@
         </div>
       </div>
     </form>
+    <script src="objects.js"></script>
+    <script src="main.js"></script>
   </body>
 </html>

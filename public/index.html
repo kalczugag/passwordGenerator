@@ -13,13 +13,18 @@
         ></script>
     </head>
     <body>
-        <button onclick="showTable()">show table</button>
-        <form class="wrapper" type="#">
+        <form class="wrapper">
             <div class="header">Password Generator</div>
             <div class="container">
                 <div class="input-area">
                     <div class="output">
-                        <div id="otpText"></div>
+                        <textarea
+                            readonly
+                            id="otpText"
+                            cols="25"
+                            rows="10"
+                        ></textarea>
+                        <div class="tooltip">Copied</div>
                         <i
                             class="fa-regular fa-copy"
                             id="copy"
@@ -52,52 +57,57 @@
                             <input
                                 type="checkbox"
                                 id="lowerCase"
-                                onchange="passwordSettings()"
+                                onchange="passwordSettings(this.id)"
                             /><span>Lowercase [o-z]</span>
                         </div>
                         <div>
                             <input
                                 type="checkbox"
                                 id="upperCase"
-                                onchange="passwordSettings()"
+                                onchange="passwordSettings(this.id)"
                             /><span>Uppercase [A-J]</span>
                         </div>
                         <div>
                             <input
                                 type="checkbox"
                                 id="numbers"
-                                onchange="passwordSettings()"
+                                onchange="passwordSettings(this.id)"
                             /><span>Numbers [0-9]</span>
                         </div>
                         <div>
                             <input
                                 type="checkbox"
                                 id="symbols"
-                                onchange="passwordSettings()"
+                                onchange="passwordSettings(this.id)"
                             /><span>Symbols [!-$%+]</span>
                         </div>
                         <div>
                             <input
                                 type="checkbox"
                                 id="duplicate"
-                                onchange="passwordSettings()"
+                                onchange="passwordSettings(this.id)"
                             /><span>Exclude duplicate</span>
                         </div>
                         <div>
                             <input
                                 type="checkbox"
                                 id="spaces"
-                                onchange="passwordSettings()"
+                                onchange="passwordSettings(this.id)"
                             /><span>Include Spaces</span>
                         </div>
                     </div>
                 </div>
                 <div class="footer-button">
-                    <button class="generate-button">GENERATE PASSWORD</button>
+                    <button
+                        class="generate-button"
+                        onclick="generatePassword()"
+                    >
+                        GENERATE PASSWORD
+                    </button>
                 </div>
             </div>
         </form>
-        <script src="objects.js"></script>
+        <script src="signsArrays.js"></script>
         <script src="main.js"></script>
     </body>
 </html>

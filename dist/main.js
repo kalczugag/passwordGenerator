@@ -4,7 +4,7 @@ let passwdLength = document.getElementById("passwdLength");
 const copyBtn = document.getElementById("copy");
 const copiedMsg = document.querySelector(".tooltip");
 window.onload = () => {
-    const test = localStorage.getItem("password");
+    const test = JSON.parse(localStorage.getItem("password") || "{}");
     outputPass.innerHTML = test;
     localStorage.clear();
 };
